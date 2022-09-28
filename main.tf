@@ -96,7 +96,7 @@ resource "aws_instance" "dev0-web-01" {
     /* #!/bin/bash */
     /* echo "This is running successfully by terraform" > index.html
     nohup busybox httpd -f -p 8080 & */
-    #! /bin/bash
+        #!/bin/bash
         sudo apt-get update
 		sudo apt-get install -y apache2
 		sudo systemctl start apache2
