@@ -97,10 +97,8 @@ resource "aws_instance" "dev0-web-01" {
     /* echo "This is running successfully by terraform" > index.html
     nohup busybox httpd -f -p 8080 & */
         #!/bin/bash
-        sudo apt-get update
-		sudo apt-get install -y apache2
-		sudo systemctl start apache2
-		sudo systemctl enable apache2
+        sudo apt-get update && sudo apt-get install -y apache2
+		sudo systemctl start apache2 && sudo systemctl enable apache2
 		echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
     EOF
     tags = {
